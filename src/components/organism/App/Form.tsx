@@ -57,8 +57,6 @@ export default function FormSection() {
 		toast(`Logged In, Hello ${username}! 🎉`);
 	};
 
-	console.log(isLoading, "<s");
-
 	return (
 		<section className="block w-full md:flex md:w-[40%] items-center justify-center flex-col md:p-10">
 			{/* header */}
