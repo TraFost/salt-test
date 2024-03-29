@@ -54,7 +54,7 @@ export default function FormSection() {
 	};
 
 	return (
-		<section className="block flex-[0.4] md:flex items-center justify-center flex-col md:p-32">
+		<section className="block w-full md:flex md:w-[40%] items-center justify-center flex-col md:p-10">
 			{/* header */}
 			<div className="space-y-2 w-full">
 				<h1 className="font-bold text-[32px]">{formTitle}</h1>
@@ -93,7 +93,7 @@ export default function FormSection() {
 						)}
 
 						{/* remember me */}
-						<div className="flex justify-between">
+						<div className="flex justify-between flex-wrap">
 							<div className="flex items-center gap-2">
 								<input
 									type="checkbox"
