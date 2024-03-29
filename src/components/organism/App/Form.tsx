@@ -93,7 +93,7 @@ export default function FormSection() {
 						)}
 
 						{/* remember me */}
-						<div className="flex justify-between flex-wrap">
+						<div className="flex justify-between">
 							<div className="flex items-center gap-2">
 								<input
 									type="checkbox"
