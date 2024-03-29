@@ -40,7 +40,7 @@ export default function Input({
 			/>
 			<span
 				onClick={onIconClicked}
-				className="absolute right-0 bottom-5 grid w-10 place-content-center text-gray-500"
+				className="absolute right-0 bottom-5 md:bottom-4 grid w-10 place-content-center text-gray-500 cursor-pointer"
 			>
 				{renderIcon()}
 			</span>
