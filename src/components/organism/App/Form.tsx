@@ -133,7 +133,7 @@ export default function FormSection() {
 										variant={social.variant as any}
 										isSocial={social.isSocial}
 									>
-										{social.text}
+										<span className="font-light">{social.text}</span>
 									</Button>
 								))}
 							</div>
