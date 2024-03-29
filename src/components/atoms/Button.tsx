@@ -1,15 +1,18 @@
 import React from "react";
+import Loader from "./Loader";
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children: React.ReactNode;
 	variant?: "primary" | "secondary";
 	isSocial?: boolean;
+	loading?: boolean;
 }
 
 export default function Button({
 	children,
 	variant,
 	isSocial,
+	loading = false,
 	...props
 }: IButton) {
 	const selectedVariant: any = {
@@ -22,11 +25,12 @@ export default function Button({
 	return (
 		<button
 			{...props}
-			className={`w-full ${
-				isSocial ? "text-sm border-[#AFA2C3]" : "text-base"
-			} ${selectedVariant[variant!]}`}
+			disabled={loading}
+			className={`w-full ${isSocial ? "text-sm border-[#AFA2C3]" : "text-base"} 
+			${loading ? "opacity-70 cursor-not-allowed" : ""}
+			${selectedVariant[variant!]}`}
 		>
-			{children}
+			{loading ? <Loader isLoading={loading} /> : children}
 		</button>
 	);
 }

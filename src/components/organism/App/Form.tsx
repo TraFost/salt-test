@@ -23,6 +23,7 @@ export default function FormSection() {
 	);
 
 	const [toggleIcon, setToggleIcon] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const dispatch = useDispatch();
 
@@ -41,6 +42,8 @@ export default function FormSection() {
 	const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
+		setIsLoading(true);
+
 		const inputs = [email, password];
 		const username = email.split("@")[0];
 
@@ -50,8 +53,11 @@ export default function FormSection() {
 			return toast("Invalid Email or Password", "static");
 		}
 
+		setTimeout(() => setIsLoading(false), 2000);
 		toast(`Logged In, Hello ${username}! 🎉`);
 	};
+
+	console.log(isLoading, "<s");
 
 	return (
 		<section className="block w-full md:flex md:w-[40%] items-center justify-center flex-col md:p-10">
@@ -112,11 +118,12 @@ export default function FormSection() {
 
 						{/* submit button */}
 						<div className="flex gap-4">
-							{formButtons.map((button, idx) => (
+							{formButtons.map((button, i) => (
 								<Button
 									key={button.text}
 									variant={button.variant as any}
 									type={button.type as any}
+									loading={i === 0 && isLoading}
 								>
 									{button.text}
 								</Button>
